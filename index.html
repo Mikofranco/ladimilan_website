@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,16 +77,24 @@
           <div class="hamburger" onclick="toggleMenu()">☰</div>
           <div class="navigations" id="nav-links">
             <li>
-              <a href="#who-we-are" onclick="scrollToSection('who-we-are')">About us</a>
+              <a href="#who-we-are" onclick="scrollToSection('who-we-are')"
+                >About us</a
+              >
             </li>
             <li>
-              <a href="#our-service" onclick="scrollToSection('our-service')">Our Services</a>
+              <a href="#our-service" onclick="scrollToSection('our-service')"
+                >Our Services</a
+              >
             </li>
             <li>
-              <a href="#portfolios" onclick="scrollToSection('portfolios')">Portfolios</a>
+              <a href="#portfolios" onclick="scrollToSection('portfolios')"
+                >Portfolios</a
+              >
             </li>
             <li>
-              <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+              <a href="#contact" onclick="scrollToSection('contact')"
+                >Contact</a
+              >
             </li>
             <button class="book_us" onclick="scrollToSection('book-us')">
               <a href="#book-us">Book Us</a>
@@ -94,21 +106,41 @@
 
     <div class="inner-content">
       <section>
-        <div class="sponsors">
-          <div class="sponsor-card">
-            <img src="assets/svg/zappire.svg" alt="zappire" />
-          </div>
-          <div class="sponsor-card">
-            <img src="assets/svg/love_harmony.svg" alt="Love and Harmony" />
-          </div>
-          <div class="sponsor-card">
-            <img src="assets/svg/ethal.svg" alt="Ethal" />
-          </div>
-          <div class="sponsor-card">
-            <img src="assets/svg/sony.svg" alt="Sony" />
-          </div>
-          <div class="sponsor-card">
-            <img src="assets/svg/banky.svg" alt="Bankysa" />
+        <!-- Replaced static sponsors with carousel -->
+        <div class="sponsor-carousel">
+          <div class="sponsor-track">
+            <!-- Original sponsors -->
+            <div class="sponsor-card">
+              <img src="assets/svg/zappire.svg" alt="zappire" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/love_harmony.svg" alt="Love and Harmony" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/ethal.svg" alt="Ethal" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/sony.svg" alt="Sony" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/banky.svg" alt="Bankysa" />
+            </div>
+            <!-- Duplicated sponsors for seamless loop -->
+            <div class="sponsor-card">
+              <img src="assets/svg/zappire.svg" alt="zappire" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/love_harmony.svg" alt="Love and Harmony" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/ethal.svg" alt="Ethal" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/sony.svg" alt="Sony" />
+            </div>
+            <div class="sponsor-card">
+              <img src="assets/svg/banky.svg" alt="Bankysa" />
+            </div>
           </div>
         </div>
       </section>
@@ -267,7 +299,7 @@
       </section>
 
       <!-- Added id="contact" -->
-      <section id="contact">
+      <section>
         <div class="text-center">
           <h1>What Our Clients Says About Us</h1>
         </div>
@@ -285,10 +317,47 @@
         </div>
       </section>
     </div>
-
   </body>
-  <footer>
+  <footer id="contact">
+    <div class="flex flex-col md:flex-row justify-between">
+      <div>
+        <div class="logo">
+          <img src="assets/svg/logo.svg" alt="Logo" />
+        </div>
+        <div class="flex gap-3">
+          <img src="assets/svg/ig-icon.svg" alt="" class="h-8 w-8 cursor-pointer" />
+          <img src="assets/svg/youtube-icon.svg" alt="" class="h-8 w-8 cursor-pointer" />
+          <img src="assets/svg/tik-tok-icon.svg" alt="" class="h-8 w-8 cursor-pointer" />
+          <img src="assets/svg/whatsapp-icon.svg" alt="" class="h-8 w-8 cursor-pointer" />
+        </div>
+      </div>
 
+      <div>
+        <h2 class="font-bold text-[3xl]">Get in Touch</h2>
+        <div>
+          <li class="flex gap-3 my-5">
+            <img src="assets/svg/location-icon.svg" alt="" />
+            <span>Location</span>
+          </li>
+          <li class="flex gap-3 my-5">
+            <img src="assets/svg/phone-icon.svg" alt="" />
+            <span>080123456789</span>
+          </li>
+          <li class="flex gap-3 my-5">
+            <img src="assets/svg/mail-icon.svg" alt="" />
+            <span>ladimilanfilms@gmail.com</span>
+          </li>
+          <li class="flex gap-3 my-5">
+            <img src="assets/svg/location-icon.svg" alt="" />
+            <span>Location</span>
+          </li>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-start md:justify-center text-center items-center gap-3">
+      <img src="assets/svg/copyright-icon.svg" alt="Copyright icon" />
+      <p>2025 LadiMilan Films. All rights reserved</p>
+    </div>
   </footer>
   <script src="/script.js"></script>
 </html>
