@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Exo", sans-serif;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.navigations {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+a {
+  color: white;
+  font-size: 18px;
+}
+nav button {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #cf1212;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+.slide {
+  text-decoration: none;
+  color: inherit;
+}
+.slide-btn {
+  display: none;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.carousel h1 {
+  text-align: center;
+  margin: 0 auto;
+  line-height: 75vh;
+  font-size: 10vmin;
+}
+.slide {
+  float: left;
+  height: 100%;
+  width: 0;
+  transition: width 0.3s linear;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.slide > * {
+  transition: transform 0.15s linear;
+  transform: scale(0);
+}
+.labels {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.labels label {
+  display: inline-block;
+  background-color: transparent;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  margin: 0.5vmin 2vmin;
+  border: 3px solid white;
+}
+.carousel .one,
+.carousel .two,
+.carousel .three,
+.carousel .four,
+.carousel .five {
+  background-position: center center;
+  background-size: cover;
+}
+.carousel .one {
+  background-image: url("assets/images/hero_image.png");
+}
+.carousel .two {
+  background-image: url(https://cdn.pixabay.com/photo/2018/05/30/00/24/thunderstorm-3440450__340.jpg);
+}
+.carousel .three {
+  background-image: url(https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973__340.jpg);
+}
+.carousel .four {
+  background-image: url(https://cdn.pixabay.com/photo/2021/09/20/21/32/lake-6641880__340.jpg);
+}
+.carousel .five {
+  background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg);
+}
+#slide-btn-1:checked ~ .one,
+#slide-btn-2:checked ~ .two,
+#slide-btn-3:checked ~ .three,
+#slide-btn-4:checked ~ .four,
+#slide-btn-5:checked ~ .five {
+  width: 100%;
+}
+#slide-btn-1:checked ~ .one > *,
+#slide-btn-2:checked ~ .two > *,
+#slide-btn-3:checked ~ .three > *,
+#slide-btn-4:checked ~ .four > *,
+#slide-btn-5:checked ~ .five > * {
+  transform: scale(1);
+}
+#slide-btn-1:checked ~ .labels label[for="slide-btn-1"],
+#slide-btn-2:checked ~ .labels label[for="slide-btn-2"],
+#slide-btn-3:checked ~ .labels label[for="slide-btn-3"],
+#slide-btn-4:checked ~ .labels label[for="slide-btn-4"],
+#slide-btn-5:checked ~ .labels label[for="slide-btn-5"] {
+  background-color: #cf1212;
+}
+.sponsors {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem;
+  border-radius: 24px;
+  background-color: #f9f8f8;
+}
+
+.who-are-we-sect {
+  display: flex;
+  gap: 3rem;
+  width: fit-content;
+  margin: auto;
+}
+.who-are-we-sect .text-area {
+  /* flex: 1; */
+}
+.who-are-we-sect .image-area {
+  /* flex: 1; */
+  margin-top: 2rem;
+}
+.who-are-we-sect .text-area h1 {
+  margin: 2rem 0;
+  font-size: 48px;
+}
+.who-are-we-sect .text-area p {
+  line-height: 2rem;
+  color: #0d0d0d;
+}
+.experience-wrap {
+  display: flex;
+  justify-content: space-between;
+  background: #f9f8f8;
+  padding: 2rem;
+  margin: 4rem 0;
+  flex-wrap: wrap;
+  gap: 5;
+}
+.experience {
+  background: white;
+  padding: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 24px 0 0 0;
+  width: 241px;
+}
+.experience h1 {
+  font-size: 48px;
+}
+.experience p {
+  font-weight: bold;
+}
+.what-we-do-sect .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+.what-we-do-sect h1 {
+  font-size: 48px;
+}
+.what-we-do-sect .content {
+  background: #f9f8f8;
+  border-radius: 30px;
+  padding: 3rem;
+}
+.what-we-do-sect .content img {
+  padding: 2rem;
+  border-radius: 50%;
+  background: #000;
+}
+
+
+label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #555;
+}
+
+.booking-sect{
+  background: #F9F8F8;
+  padding: 3rem;
+  margin: 3rem;
+  border-radius: 28px;
+}
+.booking-sect h1{
+  font-size: 48px;
+  margin-bottom: 3rem;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+}
+
+.input-flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-flex div {
+  flex: 1;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.book-now {
+  background-color: #CF1212;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  margin: auto;
+}
+
+
+@media (max-width: 768px) {
+  .navigations {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .navigations li {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navigations.active {
+    display: flex;
+  }
+
+  nav {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  nav button {
+    margin-top: 10px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+  .who-are-we-sect {
+    display: grid;
+  }
+}
