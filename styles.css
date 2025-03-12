@@ -127,10 +127,19 @@ nav button {
 #slide-btn-5:checked ~ .labels label[for="slide-btn-5"] {
   background-color: #cf1212;
 }
+.inner-content{
+  padding: 0 6rem;
+  max-width: 1600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
 .sponsors {
   display: flex;
   justify-content: space-between;
   padding: 2rem;
+  gap: 1.5rem;
 }
 .sponsor-card {
   display: flex;
@@ -179,9 +188,6 @@ nav button {
   border-radius: 24px 0 0 0;
   width: 241px;
 }
-.experience h1 {
-  font-size: 48px;
-}
 .experience p {
   font-weight: bold;
 }
@@ -190,8 +196,9 @@ nav button {
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
 }
-.what-we-do-sect h1 {
-  font-size: 48px;
+h1{
+  font-size: 42px;
+  margin-bottom: 3rem;
 }
 .what-we-do-sect .content {
   background: #f9f8f8;
@@ -218,10 +225,7 @@ label {
   margin: 3rem;
   border-radius: 28px;
 }
-.booking-sect h1{
-  font-size: 48px;
-  margin-bottom: 3rem;
-}
+
 input,
 select,
 textarea {
@@ -260,13 +264,61 @@ textarea {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  padding: 0.75rem;
+  padding: 1rem 3rem;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
   outline: none;
   margin: auto;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+.book-now:hover {
+  background: #CF1212;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.videos{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+iframe{
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 1500px;
+}
+
+
+.video-container {
+  padding: 0.5rem;
+  text-align: center;
+}
+.see-more {
+  color: white;
+  background: #000;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 14px;
+  margin: 2rem auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.see-more:hover {
+  background: #333;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.center-btns{
+  display: flex;
+  justify-items: center;
+  margin: 1rem 0;
 }
 
 
@@ -282,7 +334,9 @@ textarea {
     padding: 20px;
     border-radius: 8px;
   }
-
+  .inner-content{
+    padding: 0 2rem;
+  }
   .navigations li {
     margin: 10px 0;
   }
@@ -311,3 +365,5 @@ textarea {
     display: grid;
   }
 }
+
+
