@@ -23,6 +23,7 @@ nav {
 a {
   color: white;
   font-size: 18px;
+  text-decoration: none;
 }
 nav .book_us {
   padding: 15px;
