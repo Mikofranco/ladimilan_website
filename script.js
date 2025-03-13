@@ -1,5 +1,4 @@
 window.onload = function () {
-  // Carousel
   let int;
   function setInt() {
     clearInterval(int);
@@ -21,8 +20,8 @@ window.onload = function () {
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup");
 
-  // Toggle mobile menu
   function toggleMenu() {
+    console.log("Toggling menu:", navLinks.classList.contains("active"));
     navLinks.classList.toggle("active");
   }
 
@@ -39,44 +38,23 @@ window.onload = function () {
     }
   });
 
-  // Scroll to section and close menu
+  // Scroll to section and close menu (unchanged)
   function scrollToSection(sectionId) {
     event.preventDefault();
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       if (navLinks.classList.contains("active")) {
-        toggleMenu(); // Close menu after clicking a link
+        toggleMenu();
       }
     }
   }
 
-  // Video data
   const videodata = [
-    {
-      id: 1,
-      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
-      title: "Kofoworola & Olawale",
-      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
-    },
-    {
-      id: 2,
-      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
-      title: "Kofoworola & Olawale",
-      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
-    },
-    {
-      id: 3,
-      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
-      title: "Kofoworola & Olawale",
-      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
-    },
-    {
-      id: 4,
-      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
-      title: "Kofoworola & Olawale",
-      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
-    },
+    { id: 1, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
+    { id: 2, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
+    { id: 3, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
+    { id: 4, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
   ];
 
   let videosToShow = 4;
@@ -92,14 +70,9 @@ window.onload = function () {
         .map(
           (video) => `
             <div class="video-container">
-              <img
-                src="${video.thumbnail}"
-                alt="${video.title}"
-                class="video-thumbnail"
-                data-url="${video.url}"
-                data-title="${video.title}"
-              />
-              <h3>${video.title}</h3>
+              <img src="${video.thumbnail}" alt="${video.title}" class="video-thumbnail" data-url="${video.url}" data-title="${video.title}" />
+              <h3 class="video-title">${video.title}</h3>
+              <img src="assets/svg/playicon.svg" alt="video play icon" class="play-icon"/>
             </div>
           `
         )
@@ -111,22 +84,27 @@ window.onload = function () {
   }
 
   function attachVideoListeners() {
-    const thumbnails = document.querySelectorAll(".video-thumbnail");
-    thumbnails.forEach((thumbnail) => {
-      thumbnail.addEventListener("click", () => {
+    const videoContainers = document.querySelectorAll(".video-container");
+
+    videoContainers.forEach((container) => {
+      const thumbnail = container.querySelector(".video-thumbnail");
+      const playIcon = container.querySelector(".play-icon");
+
+      // Function to open popup
+      const openVideoPopup = () => {
         const videoUrl = thumbnail.dataset.url.replace("mute=1", "mute=0&autoplay=1");
         popupTitle.textContent = thumbnail.dataset.title;
         popupVideoContainer.innerHTML = `
-          <iframe
-            src="${videoUrl}"
-            frameborder="0"
-            allowfullscreen
-            class="popup-video-iframe"
-          ></iframe>
+          <iframe src="${videoUrl}" frameborder="0" allowfullscreen class="popup-video-iframe"></iframe>
         `;
         popup.style.display = "block";
         overlay.style.display = "block";
-      });
+      };
+
+      thumbnail.addEventListener("click", openVideoPopup);
+      if (playIcon) {
+        playIcon.addEventListener("click", openVideoPopup);
+      }
     });
   }
 
@@ -139,16 +117,14 @@ window.onload = function () {
   function closePopup() {
     popup.style.display = "none";
     overlay.style.display = "none";
-    popupVideoContainer.innerHTML = ""; // Clear video
+    popupVideoContainer.innerHTML = "";
   }
 
-  // Event listeners
   hamburger.addEventListener("click", toggleMenu);
-  overlay.addEventListener("click", closePopup); // Close popup when clicking overlay
+  overlay.addEventListener("click", closePopup);
   seeMoreButton.addEventListener("click", showMoreVideos);
   renderVideos(videosToShow);
 
-  // Counter logic
   const counters = document.querySelectorAll(".counter");
   const speed = 200;
 
@@ -156,7 +132,6 @@ window.onload = function () {
     const target = +counter.getAttribute("data-target");
     let count = +counter.innerText.replace("+", "");
     const inc = Math.ceil(target / speed);
-
     if (count < target) {
       count = Math.min(count + inc, target);
       counter.innerText = Math.floor(count) + "+";
@@ -184,7 +159,6 @@ window.onload = function () {
   counters.forEach((counter) => observer.observe(counter));
 };
 
-// Expose functions to global scope for inline onclick
 function scrollToSection(sectionId) {
   event.preventDefault();
   const section = document.getElementById(sectionId);

@@ -76,20 +76,26 @@ nav .book_us:hover {
   margin: 0 auto;
   line-height: 75vh;
   font-size: 10vmin;
+  position: relative; 
+  z-index: 2; 
+  color: white; 
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .slide {
-  float: left;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%; 
   height: 100%;
-  width: 0;
-  transition: width 0.3s linear;
+  opacity: 0; 
+  transition: opacity 0.5s ease; 
   overflow: hidden;
-  white-space: nowrap;
 }
 
 .slide > * {
-  transition: transform 0.15s linear;
-  transform: scale(0);
+  transition: opacity 1.05s ease; 
+  opacity: 0; 
 }
 
 .labels {
@@ -97,6 +103,7 @@ nav .book_us:hover {
   bottom: 20px;
   width: 100%;
   text-align: center;
+  z-index: 2;
 }
 
 .labels label {
@@ -106,8 +113,9 @@ nav .book_us:hover {
   height: 15px;
   border-radius: 50%;
   margin: 0 10px;
-  border: 3px solid white;
+  border: 3px solid transparent;
   cursor: pointer;
+  background: gray;
 }
 
 .carousel .one,
@@ -140,7 +148,7 @@ nav .book_us:hover {
 #slide-btn-3:checked ~ .three,
 #slide-btn-4:checked ~ .four,
 #slide-btn-5:checked ~ .five {
-  width: 100%;
+  opacity: 1; 
 }
 
 #slide-btn-1:checked ~ .one > *,
@@ -148,7 +156,7 @@ nav .book_us:hover {
 #slide-btn-3:checked ~ .three > *,
 #slide-btn-4:checked ~ .four > *,
 #slide-btn-5:checked ~ .five > * {
-  transform: scale(1);
+  opacity: 1; 
 }
 
 #slide-btn-1:checked ~ .labels label[for="slide-btn-1"],
@@ -255,8 +263,8 @@ nav .book_us:hover {
   background: #f9f8f8;
   padding: 2rem;
   margin: 4rem auto;
-  max-width: 1090px;
-  border-radius: 24px;
+  max-width: 1240px;
+  border-radius: 10px;
   gap: 1rem;
 }
 
@@ -264,13 +272,12 @@ nav .book_us:hover {
   background: white;
   padding: 2rem 1rem;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
-  width: 241px;
-  text-align: center;
+  width: 266px;
 }
 
 .experience h1 {
-  margin-bottom: 10px;
-  font-size: calc(24px + 1vw);
+  margin-bottom: 2px;
+  font-size: calc(24px + 2vw);
 }
 
 .experience-wrap #yrs-experience {
@@ -291,33 +298,38 @@ nav .book_us:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
+
 .what-we-do-sect h1 {
   padding-left: 10%;
 }
+
 .what-we-do-sect .content {
   background: #f9f8f8;
   border-radius: 30px;
   padding: 3rem;
 }
+
 .what-we-do-sect .heading {
   display: flex;
-  gap: 2rem;
+  gap: 12px;
   margin-bottom: 1rem;
   align-items: center;
 }
+
 .what-we-do-sect .content h2 {
   font-weight: bold;
 }
+
 .what-we-do-sect .content img {
   padding: 10px;
   background: #000;
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  margin: 0 auto 1rem;
+  margin: 0;
 }
 
 /* General Typography */
@@ -333,14 +345,15 @@ h1 {
   padding: 3rem;
   margin: 3rem auto;
   border-radius: 28px;
-  max-width: 1500px;
+  width: 1240px;
 }
 
 label {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   display: block;
-  color: #555;
+  color: #000;
+  font-weight: 550;
 }
 
 input,
@@ -374,6 +387,7 @@ textarea:focus {
 textarea {
   resize: vertical;
 }
+
 select {
   width: 100%;
   padding: 1rem;
@@ -402,6 +416,7 @@ select {
   border-color: #000;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
 .book-now {
   background-color: #cf1212;
   color: white;
@@ -433,6 +448,12 @@ select {
 .video-container {
   position: relative;
   text-align: center;
+}
+
+.play-icon {
+  position: absolute;
+  top: 40%;
+  right: 40%;
 }
 
 .video-thumbnail {
@@ -576,11 +597,36 @@ h2 {
   font-size: 24px;
 }
 
+@media (max-width: 1447px) {
+  .booking-sect {
+    background: #f9f8f8;
+    max-width: 1000px;
+  }
+}
+@media (max-width: 1227px) {
+  .booking-sect {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 946px) {
+  .booking-sect {
+    max-width: 500px;
+  }
+  .what-we-do-sect .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   nav {
     padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   .hamburger {
@@ -588,46 +634,29 @@ h2 {
   }
 
   .navigations {
-    display: none;
-    position: fixed; /* Changed to fixed for full-screen overlay */
+    display: none; 
+    position: fixed;
     top: 0;
     right: 0;
     width: 250px;
-    height: 100%; /* Full height */
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 2rem 1rem;
-    border-radius: 0;
-    transition: all 0.3s ease;
-    transform: translateX(100%); /* Slide in from right */
+    transition: transform 0.3s ease; 
+    transform: translateX(100%); 
     z-index: 1000;
   }
 
   .navigations.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+    display: block !important;
+    transform: translateX(0) !important;
   }
 
   .navigations ul {
     flex-direction: column;
     gap: 20px;
   }
-  nav {
-    padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
 
-  /* Overlay for mobile menu */
-  body.nav-active::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-  }
   .navigations li {
     width: 100%;
     text-align: center;
@@ -647,6 +676,18 @@ h2 {
     margin-top: 10px;
     width: 100%;
     padding: 12px;
+  }
+
+  /* Overlay for mobile menu (optional) */
+  body.nav-active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
   }
 
   .inner-content {
@@ -679,20 +720,24 @@ h2 {
   .what-we-do-sect .container {
     grid-template-columns: 1fr;
   }
+
   .what-we-do-sect .content {
     background: #f9f8f8;
     border-radius: 30px;
     padding: 1rem;
   }
+
   .what-we-do-sect .heading {
     display: flex;
     gap: 2rem;
     margin-bottom: 1rem;
     align-items: center;
   }
+
   .what-we-do-sect .content h2 {
     font-weight: bold;
   }
+
   .what-we-do-sect .content img {
     padding: 5px;
     background: #000;
@@ -706,6 +751,7 @@ h2 {
     padding: 1rem;
     margin: 1rem;
   }
+
   #categories {
     height: 45px;
     font-size: 14px;
