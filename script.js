@@ -1,5 +1,5 @@
 window.onload = function () {
-  // Carousel (unchanged)
+  // Carousel
   let int;
   function setInt() {
     clearInterval(int);
@@ -16,6 +16,42 @@ window.onload = function () {
   }
   setInt();
 
+  const navLinks = document.getElementById("nav-links");
+  const hamburger = document.querySelector(".hamburger");
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup");
+
+  // Toggle mobile menu
+  function toggleMenu() {
+    navLinks.classList.toggle("active");
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", function (event) {
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+    if (
+      !isClickInsideNav &&
+      !isClickOnHamburger &&
+      navLinks.classList.contains("active")
+    ) {
+      toggleMenu();
+    }
+  });
+
+  // Scroll to section and close menu
+  function scrollToSection(sectionId) {
+    event.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      if (navLinks.classList.contains("active")) {
+        toggleMenu(); // Close menu after clicking a link
+      }
+    }
+  }
+
+  // Video data
   const videodata = [
     {
       id: 1,
@@ -46,8 +82,6 @@ window.onload = function () {
   let videosToShow = 4;
   const videoContainer = document.querySelector(".videos");
   const seeMoreButton = document.querySelector(".see-more");
-  const popup = document.getElementById("popup");
-  const overlay = document.getElementById("overlay");
   const popupTitle = document.getElementById("popup-title");
   const popupVideoContainer = document.getElementById("popup-video-container");
 
@@ -70,6 +104,7 @@ window.onload = function () {
           `
         )
         .join("");
+      attachVideoListeners();
     } catch (error) {
       console.error("Error rendering videos:", error);
     }
@@ -79,7 +114,6 @@ window.onload = function () {
     const thumbnails = document.querySelectorAll(".video-thumbnail");
     thumbnails.forEach((thumbnail) => {
       thumbnail.addEventListener("click", () => {
-        console.log("Thumbnail clicked:", thumbnail.dataset.title); // Debug log
         const videoUrl = thumbnail.dataset.url.replace("mute=1", "mute=0&autoplay=1");
         popupTitle.textContent = thumbnail.dataset.title;
         popupVideoContainer.innerHTML = `
@@ -99,7 +133,6 @@ window.onload = function () {
   function showMoreVideos() {
     videosToShow = videodata.length;
     renderVideos(videosToShow);
-    attachVideoListeners(); // Re-attach listeners after re-rendering
     seeMoreButton.style.display = "none";
   }
 
@@ -109,14 +142,13 @@ window.onload = function () {
     popupVideoContainer.innerHTML = ""; // Clear video
   }
 
-  // Initial render and setup
-  renderVideos(videosToShow);
-  attachVideoListeners();
-
-  overlay.addEventListener("click", closePopup);
+  // Event listeners
+  hamburger.addEventListener("click", toggleMenu);
+  overlay.addEventListener("click", closePopup); // Close popup when clicking overlay
   seeMoreButton.addEventListener("click", showMoreVideos);
+  renderVideos(videosToShow);
 
-  // Counter logic (unchanged)
+  // Counter logic
   const counters = document.querySelectorAll(".counter");
   const speed = 200;
 
@@ -152,6 +184,7 @@ window.onload = function () {
   counters.forEach((counter) => observer.observe(counter));
 };
 
+// Expose functions to global scope for inline onclick
 function scrollToSection(sectionId) {
   event.preventDefault();
   const section = document.getElementById(sectionId);
@@ -167,4 +200,12 @@ function scrollToSection(sectionId) {
 function toggleMenu() {
   const navLinks = document.getElementById("nav-links");
   navLinks.classList.toggle("active");
+}
+
+function closePopup() {
+  const popup = document.getElementById("popup");
+  const overlay = document.getElementById("overlay");
+  popup.style.display = "none";
+  overlay.style.display = "none";
+  document.getElementById("popup-video-container").innerHTML = "";
 }
