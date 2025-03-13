@@ -294,7 +294,9 @@ nav .book_us:hover {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+.what-we-do-sect h1 {
+  padding-left: 10%;
+}
 .what-we-do-sect .content {
   background: #f9f8f8;
   border-radius: 30px;
@@ -310,7 +312,7 @@ nav .book_us:hover {
   font-weight: bold;
 }
 .what-we-do-sect .content img {
-  padding: 10px; 
+  padding: 10px;
   background: #000;
   border-radius: 50%;
   width: 150px;
@@ -372,7 +374,34 @@ textarea:focus {
 textarea {
   resize: vertical;
 }
+select {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
 
+#categories {
+  height: 50px;
+  border: 1px solid #000;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: #fff;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="black" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+}
+
+#categories:focus {
+  border-color: #000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 .book-now {
   background-color: #cf1212;
   color: white;
@@ -676,6 +705,10 @@ h2 {
   .booking-sect {
     padding: 1rem;
     margin: 1rem;
+  }
+  #categories {
+    height: 45px;
+    font-size: 14px;
   }
 
   .input-flex {
