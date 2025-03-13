@@ -468,6 +468,13 @@ select {
 .video-thumbnail:hover {
   transform: scale(1.01);
 }
+.video-title{
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px 5px;
+  text-align: left;
+  padding-top: 10px;
+}
 
 /* Popup */
 .popup {
