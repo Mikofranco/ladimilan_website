@@ -1,5 +1,5 @@
 window.onload = function () {
-  // Carousel
+  // Carousel (unchanged)
   let int;
   function setInt() {
     clearInterval(int);
@@ -16,12 +16,31 @@ window.onload = function () {
   }
   setInt();
 
-  // Video Rendering (unchanged)
   const videodata = [
-    { id: 1, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale" },
-    { id: 2, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale" },
-    { id: 3, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale" },
-    { id: 4, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale" },
+    {
+      id: 1,
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
+      title: "Kofoworola & Olawale",
+      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
+    },
+    {
+      id: 2,
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
+      title: "Kofoworola & Olawale",
+      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
+    },
+    {
+      id: 3,
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
+      title: "Kofoworola & Olawale",
+      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
+    },
+    {
+      id: 4,
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1",
+      title: "Kofoworola & Olawale",
+      thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg",
+    },
   ];
 
   let videosToShow = 4;
@@ -29,6 +48,8 @@ window.onload = function () {
   const seeMoreButton = document.querySelector(".see-more");
   const popup = document.getElementById("popup");
   const overlay = document.getElementById("overlay");
+  const popupTitle = document.getElementById("popup-title");
+  const popupVideoContainer = document.getElementById("popup-video-container");
 
   function renderVideos(limit) {
     try {
@@ -37,66 +58,79 @@ window.onload = function () {
         .map(
           (video) => `
             <div class="video-container">
-              <iframe
-                src="${video.url}"
-                frameborder="0"
-                allowfullscreen
-                class="video-iframe"
+              <img
+                src="${video.thumbnail}"
+                alt="${video.title}"
+                class="video-thumbnail"
+                data-url="${video.url}"
                 data-title="${video.title}"
-              ></iframe>
+              />
               <h3>${video.title}</h3>
             </div>
           `
         )
         .join("");
-
-      const iframes = document.querySelectorAll(".video-iframe");
-      iframes.forEach((iframe) => {
-        setTimeout(() => {
-          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*");
-        }, 10000);
-
-        iframe.addEventListener("click", () => {
-          popup.querySelector("p").textContent = `Learn more about "${iframe.dataset.title}"!`;
-          popup.style.display = "block";
-          overlay.style.display = "block";
-        });
-      });
     } catch (error) {
       console.error("Error rendering videos:", error);
     }
   }
 
+  function attachVideoListeners() {
+    const thumbnails = document.querySelectorAll(".video-thumbnail");
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", () => {
+        console.log("Thumbnail clicked:", thumbnail.dataset.title); // Debug log
+        const videoUrl = thumbnail.dataset.url.replace("mute=1", "mute=0&autoplay=1");
+        popupTitle.textContent = thumbnail.dataset.title;
+        popupVideoContainer.innerHTML = `
+          <iframe
+            src="${videoUrl}"
+            frameborder="0"
+            allowfullscreen
+            class="popup-video-iframe"
+          ></iframe>
+        `;
+        popup.style.display = "block";
+        overlay.style.display = "block";
+      });
+    });
+  }
+
   function showMoreVideos() {
     videosToShow = videodata.length;
     renderVideos(videosToShow);
+    attachVideoListeners(); // Re-attach listeners after re-rendering
     seeMoreButton.style.display = "none";
   }
 
   function closePopup() {
     popup.style.display = "none";
     overlay.style.display = "none";
+    popupVideoContainer.innerHTML = ""; // Clear video
   }
+
+  // Initial render and setup
+  renderVideos(videosToShow);
+  attachVideoListeners();
 
   overlay.addEventListener("click", closePopup);
   seeMoreButton.addEventListener("click", showMoreVideos);
-  renderVideos(videosToShow);
 
-  // Counter Logic with Intersection Observer
+  // Counter logic (unchanged)
   const counters = document.querySelectorAll(".counter");
   const speed = 200;
 
   const updateCount = (counter) => {
     const target = +counter.getAttribute("data-target");
-    let count = +counter.innerText.replace("+", ""); // Remove "+" for calculation
-    const inc = Math.ceil(target / speed); // Whole number increment
+    let count = +counter.innerText.replace("+", "");
+    const inc = Math.ceil(target / speed);
 
     if (count < target) {
-      count = Math.min(count + inc, target); // Cap at target
-      counter.innerText = Math.floor(count) + "+"; // Always show whole numbers with "+"
+      count = Math.min(count + inc, target);
+      counter.innerText = Math.floor(count) + "+";
       setTimeout(() => updateCount(counter), 20);
     } else {
-      counter.innerText = target + "+"; // Final value with "+"
+      counter.innerText = target + "+";
     }
   };
 

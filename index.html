@@ -82,29 +82,33 @@
           </div>
           <div class="hamburger" onclick="toggleMenu()">☰</div>
           <div class="navigations" id="nav-links">
-            <li>
-              <a href="#who-we-are" onclick="scrollToSection('who-we-are')"
-                >About us</a
-              >
-            </li>
-            <li>
-              <a href="#our-service" onclick="scrollToSection('our-service')"
-                >Our Services</a
-              >
-            </li>
-            <li>
-              <a href="#portfolios" onclick="scrollToSection('portfolios')"
-                >Portfolios</a
-              >
-            </li>
-            <li>
-              <a href="#contact" onclick="scrollToSection('contact')"
-                >Contact</a
-              >
-            </li>
-            <button class="book_us" onclick="scrollToSection('book-us')">
-              <a href="#book-us">Book Us</a>
-            </button>
+            <ul>
+              <li>
+                <a href="#who-we-are" onclick="scrollToSection('who-we-are')"
+                  >About us</a
+                >
+              </li>
+              <li>
+                <a href="#our-service" onclick="scrollToSection('our-service')"
+                  >Our Services</a
+                >
+              </li>
+              <li>
+                <a href="#portfolios" onclick="scrollToSection('portfolios')"
+                  >Portfolios</a
+                >
+              </li>
+              <li>
+                <a href="#contact" onclick="scrollToSection('contact')"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <button class="book_us" onclick="scrollToSection('book-us')">
+                  <a href="#book-us">Book Us</a>
+                </button>
+              </li>
+            </ul>
           </div>
         </nav>
       </div>
@@ -253,7 +257,7 @@
 
       <!-- Book us section -->
       <section class="booking-sect" id="book-us">
-        <h1>Book your next event with us</h1>
+        <h1 class="text-center">Book your next event with us</h1>
         <form action="">
           <label for="fullName">Full Name</label>
           <input type="text" id="fullName" />
@@ -274,7 +278,6 @@
                 class="form-select p-[1rem]"
                 aria-label="Default select example"
                 id="categories"
-                
               >
                 <option selected>Corporate</option>
                 <option value="1">One</option>
@@ -301,7 +304,6 @@
           </div>
         </form>
       </section>
-
       <!-- Portfolios -->
       <section id="portfolios">
         <h1>Our Recent Work</h1>
@@ -315,8 +317,8 @@
       <div class="overlay" id="overlay"></div>
       <div class="popup" id="popup">
         <span class="close-btn" onclick="closePopup()">×</span>
-        <h2>Video Details</h2>
-        <p>Click here to learn more about this project!</p>
+        <h2 id="popup-title">Video Details</h2>
+        <div id="popup-video-container"></div>
       </div>
     </div>
     <!-- client feedback -->
@@ -432,19 +434,19 @@
       <div>
         <h2 class="font-bold text-[3xl]">Get in Touch</h2>
         <div>
-          <li class="flex gap-3 my-5">
+          <li class="flex gap-3 mb-2">
             <img src="assets/svg/location-icon.svg" alt="" />
             <span>Location</span>
           </li>
-          <li class="flex gap-3 my-5">
+          <li class="flex gap-3 mb-2">
             <img src="assets/svg/phone-icon.svg" alt="" />
             <span>080123456789</span>
           </li>
-          <li class="flex gap-3 my-5">
+          <li class="flex gap-3 mb-2">
             <img src="assets/svg/mail-icon.svg" alt="" />
             <span>ladimilanfilms@gmail.com</span>
           </li>
-          <li class="flex gap-3 my-5">
+          <li class="flex gap-3 mb-2">
             <img src="assets/svg/location-icon.svg" alt="" />
             <span>Location</span>
           </li>
@@ -452,7 +454,7 @@
       </div>
     </div>
     <div
-      class="flex justify-start md:justify-center text-center items-center gap-3"
+      class="flex justify-start md:justify-center text-center item-center gap-3"
     >
       <img src="assets/svg/copyright-icon.svg" alt="Copyright icon" />
       <p>2025 LadiMilan Films. All rights reserved</p>
