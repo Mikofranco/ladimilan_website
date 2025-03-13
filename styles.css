@@ -603,6 +603,45 @@ footer {
 h2 {
   font-size: 24px;
 }
+/* Sponsors (and Client Feedback Carousel) */
+.feeback-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  margin-top: 3rem;
+}
+
+.feedback-track {
+  display: flex;
+  animation: slideRight 20s linear infinite; 
+  width: calc(800px * 2); 
+}
+
+.clients-feedback-card {
+  flex: 0 0 auto;
+  width: 800px; 
+  height: auto; /* Adjust height dynamically */
+  margin: 0 10px;
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+}
+
+/* New animation for sliding to the right */
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%); /* Start fully off-screen to the left */
+  }
+  100% {
+    transform: translateX(0); /* End at original position */
+  }
+}
+
+.feeback-carousel:hover .sponsor-track {
+  animation-play-state: paused;
+}
 
 @media (max-width: 1447px) {
   .booking-sect {
@@ -770,6 +809,7 @@ h2 {
 
   h1 {
     font-size: 30px;
+    margin-bottom: 1rem;
   }
 
   .videos {
