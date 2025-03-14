@@ -440,7 +440,7 @@ select {
 .videos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -828,17 +828,26 @@ select {
 footer {
   background: #000;
   color: #f3f3f3;
-  padding: 3rem 2rem;
+  padding: 4rem 3rem;
+}
+.footer-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+.Copyright-footer{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  padding-top: 5rem;
+}
+.get-in-touch{
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
   font-size: 24px;
-}
-
-
-
-@keyframes slideRight {
-  /* Removed as it’s unused in the updated feedback section */
 }
 
 /* Responsive */
@@ -872,7 +881,7 @@ h2 {
 @media (max-width: 768px) {
   nav {
     padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: transparent;
   }
 
   .hamburger {
@@ -1026,6 +1035,32 @@ h2 {
 
   .popup-video-iframe {
     height: 300px;
+  }
+  footer {
+    background: #000;
+    color: #f3f3f3;
+    padding: 4rem 3rem;
+  }
+  .footer-wrap{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 5rem;
+  }
+  .footer-icon{
+    height: 20px;
+    width: 20px;
+  }
+  .Copyright-footer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    padding-top: 5rem;
+  }
+  .get-in-touch{
+    font-weight: bold;
+    margin-bottom: 1.5rem;
   }
 }
 
