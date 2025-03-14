@@ -14,6 +14,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -159,7 +163,7 @@
       <section id="who-we-are">
         <div class="who-are-we-sect">
           <div class="text-area">
-            <h1 class="font-bold">Who are we</h1>
+            <h1 class="font-bold">Who we are</h1>
             <p>
               Lorem ipsum dolor sit amet. Et quaerat doloribus ea quae accusamus
               et iusto nihil et dolorem exercitationem non facilis dolor sit
@@ -195,6 +199,12 @@
             <p>Locations</p>
           </div>
         </div>
+      </section>
+      <!-- CTA-btn -->
+      <section class="CTA-section">
+        <button class="CTA-btn" onclick="scrollToSection('book-us')">
+          Book us
+        </button>
       </section>
 
       <!-- Our services section -->
@@ -321,106 +331,111 @@
       <div class="text-center">
         <h1 class="font-bold">What Our Clients Say About Us</h1>
       </div>
-      <div class="feedback-carousel">
-        <!-- Radio Buttons -->
-        <input
-          type="radio"
-          name="feedback-slide"
-          id="feedback-slide-1"
-          class="slide-btn"
-          checked
-        />
-        <input
-          type="radio"
-          name="feedback-slide"
-          id="feedback-slide-2"
-          class="slide-btn"
-        />
-        <input
-          type="radio"
-          name="feedback-slide"
-          id="feedback-slide-3"
-          class="slide-btn"
-        />
 
-        <!-- Carousel Track -->
-        <div class="feedback-track">
-          <div class="feedback-container">
-            <div class="clients-feedback-card">
-              <img
-                src="assets/svg/quote-icon.svg"
-                alt="Quote icon"
-                class="clients-feedback-icon"
-              />
-              <div class="clients-feedback-avatar">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="empty"></div>
+              <div class="testimonials-text">
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
+                </p>
+                <h2>Omowunmi & Victor</h2>
+                <p>#OVLove24</p>
                 <img
-                  src="assets/images/wedding_phot0.jpg"
-                  alt="Omowunmi & Victor"
+                  src="./assets/svg/quote-icon.svg"
+                  alt=""
+                  class="quote-icon"
+                />
+                <img
+                  src="./assets/images/feedbackImage1.png"
+                  alt=""
+                  class="user-img"
                 />
               </div>
-              <div class="empty-div"></div>
-              <div class="client-feedback-message-wrap">
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusantium doloremque laudantium. ed ut perspiciatis unde omnis iste natus error sit
-                  voluptatem accusantium doloremque laudantium.
-                </p>
-                <strong><h2>Omowunmi & Victor</h2></strong>
-              </div>
             </div>
           </div>
-          <div class="feedback-container">
-            <div class="clients-feedback-card">
-              <img
-                src="assets/svg/quote-icon.svg"
-                alt="Quote icon"
-                class="clients-feedback-icon"
-              />
-              <div class="clients-feedback-avatar">
-                <img src="assets/images/wedding_phot0.jpg" alt="Ade & Funmi" />
-              </div>
-              <div class="empty-div"></div>
-              <div class="client-feedback-message-wrap">
+
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="empty"></div>
+              <div class="testimonials-text">
                 <p>
-                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                  odit aut fugit.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
                 </p>
-                <strong><h2>Ade & Funmi</h2></strong>
+                <h2>Omowunmi & Victor</h2>
+                <p>#OVLove24</p>
+                <img
+                  src="./assets/svg/quote-icon.svg"
+                  alt=""
+                  class="quote-icon"
+                />
+                <img
+                  src="./assets/images/feedbackImage2.png"
+                  alt=""
+                  class="user-img"
+                />
               </div>
             </div>
           </div>
 
-          <div class="feedback-container">
-            <div class="clients-feedback-card">
-              <img
-                src="assets/svg/quote-icon.svg"
-                alt="Quote icon"
-                class="clients-feedback-icon"
-              />
-              <div class="clients-feedback-avatar">
-                <img src="assets/images/wedding_phot0.jpg" alt="Tolu & Chidi" />
-              </div>
-              <div class="empty-div"></div>
-              <div class="client-feedback-message-wrap">
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="empty"></div>
+              <div class="testimonials-text">
                 <p>
-                  Neque porro quisquam est qui dolorem ipsum quia dolor sit
-                  amet, Neque porro quisquam est qui dolorem ipsum quia dolor sit consectetur.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
                 </p>
-                <strong><h2>Tolu & Chidi</h2></strong>
+                <h2>Omowunmi & Victor</h2>
+                <p>#OVLove24</p>
+                <img
+                  src="./assets/svg/quote-icon.svg"
+                  alt=""
+                  class="quote-icon"
+                />
+                <img
+                  src="./assets/images/feedbackImage1.png"
+                  alt=""
+                  class="user-img"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="empty"></div>
+              <div class="testimonials-text">
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
+                </p>
+                <h2>Omowunmi & Victor</h2>
+                <p>#OVLove24</p>
+                <img
+                  src="./assets/svg/quote-icon.svg"
+                  alt=""
+                  class="quote-icon"
+                />
+                <img
+                  src="./assets/images/feedbackImage2.png"
+                  alt=""
+                  class="user-img"
+                />
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Navigation Controls -->
-        <div class="carousel-controls">
-          
-          <div class="labels">
-            <label for="feedback-slide-1"></label>
-            <label for="feedback-slide-2"></label>
-            <label for="feedback-slide-3"></label>
-          </div>
-        </div>
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination">ffffggg</div>
       </div>
     </section>
   </body>
@@ -459,27 +474,30 @@
         <h2 class="get-in-touch">Get in Touch</h2>
         <div>
           <li class="flex gap-3 mb-2">
-            <img src="assets/svg/location-icon.svg" alt="" class="footer-icon"/>
+            <img
+              src="assets/svg/location-icon.svg"
+              alt=""
+              class="footer-icon"
+            />
             <span>Location</span>
           </li>
           <li class="flex gap-3 mb-2">
-            <img src="assets/svg/phone-icon.svg" alt="" class="footer-icon"/>
+            <img src="assets/svg/phone-icon.svg" alt="" class="footer-icon" />
             <span>080123456789</span>
           </li>
           <li class="flex gap-3 mb-2">
-            <img src="assets/svg/mail-icon.svg" alt="" class="footer-icon"/>
+            <img src="assets/svg/mail-icon.svg" alt="" class="footer-icon" />
             <span>ladimilanfilms@gmail.com</span>
           </li>
         </div>
       </div>
     </div>
-    <div
-      class="Copyright-footer"
-    >
+    <div class="Copyright-footer">
       <img src="assets/svg/copyright-icon.svg" alt="Copyright icon" />
-      <p class="mt-3"> LadiMilan Films. All rights reserved</p>
+      <p class="mt-3">LadiMilan Films. All rights reserved</p>
     </div>
   </footer>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="/script.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
