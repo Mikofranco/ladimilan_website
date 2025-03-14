@@ -1027,6 +1027,13 @@ h2 {
   .video-thumbnail {
     height: 250px;
   }
+  .play-icon {
+    position: absolute;
+    top: 37%;
+    right: 45%;
+    height: 40px;
+    width: 40px;
+  }
 
   .popup {
     width: 90vw;
