@@ -51,10 +51,10 @@ window.onload = function () {
   }
 
   const videodata = [
-    { id: 1, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
-    { id: 2, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
-    { id: 3, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
-    { id: 4, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" },
+    { id: 1, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "assets/images/video1.png" },
+    { id: 2, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "assets/images/video2.png" },
+    { id: 3, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "assets/images/video3.png" },
+    { id: 4, url: "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&autoplay=1&mute=1", title: "Kofoworola & Olawale", thumbnail: "assets/images/video4.png" },
   ];
 
   let videosToShow = 4;
