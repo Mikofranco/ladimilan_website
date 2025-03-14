@@ -184,3 +184,22 @@ function closePopup() {
 }
 hamburger.addEventListener("click", toggleMenu);
 
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3, // 2 cards on large screens
+  spaceBetween: 30, // Space between cards
+  loop: true, // Enable looping
+  autoplay: {
+    delay: 5000, // 5 seconds per slide
+    disableOnInteraction: false, // Pause on interaction
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1, 
+      spaceBetween: 20,
+    },
+  },
+});
