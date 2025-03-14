@@ -20,10 +20,10 @@ window.onload = function () {
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("popup");
 
-  function toggleMenu() {
-    console.log("Toggling menu:", navLinks.classList.contains("active"));
-    navLinks.classList.toggle("active");
-  }
+  // function toggleMenu() {
+  //   console.log("Toggling menu:", navLinks.classList.contains("active"));
+  //   navLinks.classList.toggle("active");
+  // }
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", function (event) {
@@ -120,7 +120,6 @@ window.onload = function () {
     popupVideoContainer.innerHTML = "";
   }
 
-  hamburger.addEventListener("click", toggleMenu);
   overlay.addEventListener("click", closePopup);
   seeMoreButton.addEventListener("click", showMoreVideos);
   renderVideos(videosToShow);
@@ -183,3 +182,5 @@ function closePopup() {
   overlay.style.display = "none";
   document.getElementById("popup-video-container").innerHTML = "";
 }
+hamburger.addEventListener("click", toggleMenu);
+

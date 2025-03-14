@@ -76,26 +76,26 @@ nav .book_us:hover {
   margin: 0 auto;
   line-height: 75vh;
   font-size: 10vmin;
-  position: relative; 
-  z-index: 2; 
-  color: white; 
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slide {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
-  opacity: 0; 
-  transition: opacity 0.5s ease; 
+  opacity: 0;
+  transition: opacity 0.5s ease;
   overflow: hidden;
 }
 
 .slide > * {
-  transition: opacity 1.05s ease; 
-  opacity: 0; 
+  transition: opacity 1.05s ease;
+  opacity: 0;
 }
 
 .labels {
@@ -148,7 +148,7 @@ nav .book_us:hover {
 #slide-btn-3:checked ~ .three,
 #slide-btn-4:checked ~ .four,
 #slide-btn-5:checked ~ .five {
-  opacity: 1; 
+  opacity: 1;
 }
 
 #slide-btn-1:checked ~ .one > *,
@@ -156,7 +156,7 @@ nav .book_us:hover {
 #slide-btn-3:checked ~ .three > *,
 #slide-btn-4:checked ~ .four > *,
 #slide-btn-5:checked ~ .five > * {
-  opacity: 1; 
+  opacity: 1;
 }
 
 #slide-btn-1:checked ~ .labels label[for="slide-btn-1"],
@@ -345,7 +345,7 @@ h1 {
   padding: 3rem;
   margin: 3rem auto;
   border-radius: 28px;
-  width: 1240px;
+  max-width: 1240px;
 }
 
 label {
@@ -468,7 +468,7 @@ select {
 .video-thumbnail:hover {
   transform: scale(1.01);
 }
-.video-title{
+.video-title {
   font-weight: bold;
   font-size: 18px;
   margin: 5px 5px;
@@ -553,44 +553,288 @@ select {
 /* Client Feedback */
 .client-feedback-section {
   background: #f9f8f8;
-  padding: 4rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.client-feedback-section h1 {
+  font-size: 42px;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.feedback-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.feedback-track {
+  display: flex;
+  width: calc(820px * 3); /* 3 cards total, including margins */
+  animation: slide 15s infinite linear; /* Auto-slide every 15s */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for manual control */
+}
+
+.feedback-carousel:hover .feedback-track {
+  animation-play-state: paused; /* Pause animation on hover */
+}
+
+.feedback-container {
+  flex: 0 0 800px; /* Matches card width */
+  margin: 0 10px; /* Consistent spacing */
 }
 
 .clients-feedback-card {
-  width: 800px;
   background: white;
-  display: flex;
-  gap: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  display: flex;
+  align-items: center;
   position: relative;
-  line-height: 2;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
-}
-
-.clients-feedback-card .empty-section {
-  flex: 1;
-}
-
-.clients-feedback-card .client-feedback-message-wrap {
-  flex: 2;
-  padding: 1rem;
-}
-
-.clients-feedback-card .clients-feedback-icon {
-  position: absolute;
-  top: -20px;
-  right: 2%;
-}
-
-.clients-feedback-card .clients-feedback-image {
-  position: absolute;
-  top: 0;
-  left: 2%;
   height: 100%;
-  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clients-feedback-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.clients-feedback-icon {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  color: #000; /* Black quote icon */
+  filter: invert(0);
+}
+
+.clients-feedback-avatar {
+  flex: 0 0 150px;
+  margin-right: 2rem;
+  position: relative;
+  top: -40px; /* Image spans above card */
+}
+
+.clients-feedback-avatar img {
+  width: 150px;
+  height: 200px; /* Rectangular, not circular */
   object-fit: cover;
-  border-radius: 8px;
+  border: 3px solid #cf1212;
+}
+
+.empty-div {
+  flex: 0 0 20px; /* Small spacer */
+}
+
+.client-feedback-message-wrap {
+  flex: 1;
+  text-align: left;
+  padding-top: 40px; /* Aligns text below raised image */
+}
+
+.client-feedback-message-wrap p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1rem;
+  quotes: "“" "”";
+}
+
+.client-feedback-message-wrap p::before {
+  content: open-quote;
+  font-size: 1.5rem;
+  color: #cf1212;
+}
+
+.client-feedback-message-wrap p::after {
+  content: close-quote;
+  font-size: 1.5rem;
+  color: #cf1212;
+}
+
+.client-feedback-message-wrap h2 {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Radio Button Control (Overrides Animation) */
+#feedback-slide-1:checked ~ .feedback-carousel .feedback-track {
+  transform: translateX(0);
+  animation-play-state: paused; /* Stops animation when manually selected */
+}
+
+#feedback-slide-2:checked ~ .feedback-carousel .feedback-track {
+  transform: translateX(-820px);
+  animation-play-state: paused;
+}
+
+#feedback-slide-3:checked ~ .feedback-carousel .feedback-track {
+  transform: translateX(-1640px);
+  animation-play-state: paused;
+}
+
+/* Animation for Auto-Sliding */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  33.33% {
+    transform: translateX(-820px);
+  }
+  66.66% {
+    transform: translateX(-1640px);
+  }
+  100% {
+    transform: translateX(0); /* Loops back to start */
+  }
+}
+
+/* Carousel Controls (Dots Only) */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.feedback-carousel .labels {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  margin: auto;
+}
+
+.feedback-carousel .labels label {
+  width: 15px;
+  height: 15px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#feedback-slide-1:checked ~ .feedback-carousel .labels label[for="feedback-slide-1"],
+#feedback-slide-2:checked ~ .feedback-carousel .labels label[for="feedback-slide-2"],
+#feedback-slide-3:checked ~ .feedback-carousel .labels label[for="feedback-slide-3"] {
+  background-color: #cf1212;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1600px) {
+  .feedback-track {
+    width: calc(100% * 3);
+    animation: slide-responsive-1600 15s infinite linear;
+  }
+  .feedback-container {
+    flex: 0 0 calc(50% - 20px); /* Two cards visible */
+  }
+  #feedback-slide-2:checked ~ .feedback-carousel .feedback-track {
+    transform: translateX(-51%);
+  }
+  #feedback-slide-3:checked ~ .feedback-carousel .feedback-track {
+    transform: translateX(-102%);
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-container {
+    flex: 0 0 calc(100% - 20px); /* One card visible */
+  }
+  .clients-feedback-card {
+    flex-direction: row; /* Avatar left, text right */
+    align-items: stretch; /* Stretch items to full height */
+    padding: 1rem;
+    min-height: 200px; /* Ensure card has enough height */
+    max-width: 450px;
+  }
+  .clients-feedback-avatar {
+    flex: 0 0 40%; /* Takes 40% of width */
+    margin-right: 1rem;
+    top: 0; /* No overlap on small screens */
+    height: 100%; /* Full height of card */
+  }
+  .clients-feedback-avatar img {
+    width: 100%; /* Full width of avatar container */
+    height: 100%; /* Full height of card */
+    border: 2px solid #cf1212; /* Slightly thinner border */
+  }
+  .empty-div {
+    display: none; /* Hidden on mobile */
+  }
+  .client-feedback-message-wrap {
+    flex: 1;
+    text-align: left; /* Text remains left-aligned */
+    padding-top: 0; /* No extra padding needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+  }
+  .feedback-track {
+    width: calc(100% * 3);
+    animation: slide-responsive-768 15s infinite linear;
+  }
+  #feedback-slide-2:checked ~ .feedback-carousel .feedback-track {
+    transform: translateX(-101%);
+  }
+  #feedback-slide-3:checked ~ .feedback-carousel .feedback-track {
+    transform: translateX(-202%);
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-feedback-card {
+    padding: 0.75rem;
+  }
+  .clients-feedback-avatar {
+    flex: 0 0 35%; /* Slightly smaller on very small screens */
+  }
+  .client-feedback-message-wrap p {
+    font-size: 0.95rem; /* Slightly smaller text */
+  }
+  .client-feedback-message-wrap h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive Animation Adjustments */
+@media (max-width: 1600px) {
+  @keyframes slide-responsive-1600 {
+    0% {
+      transform: translateX(0);
+    }
+    33.33% {
+      transform: translateX(-51%);
+    }
+    66.66% {
+      transform: translateX(-102%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes slide-responsive-768 {
+    0% {
+      transform: translateX(0);
+    }
+    33.33% {
+      transform: translateX(-101%);
+    }
+    66.66% {
+      transform: translateX(-202%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
 
 /* Footer */
@@ -603,58 +847,31 @@ footer {
 h2 {
   font-size: 24px;
 }
-/* Sponsors (and Client Feedback Carousel) */
+
+/* Remove Redundant Feedback Section */
 .feeback-carousel {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding: 20px 0;
-  margin-top: 3rem;
+  /* Removed as it’s a typo and redundant */
 }
 
-.feedback-track {
-  display: flex;
-  animation: slideRight 20s linear infinite; 
-  width: calc(800px * 2); 
-}
-
-.clients-feedback-card {
-  flex: 0 0 auto;
-  width: 800px; 
-  height: auto; /* Adjust height dynamically */
-  margin: 0 10px;
-  display: flex;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
-}
-
-/* New animation for sliding to the right */
 @keyframes slideRight {
-  0% {
-    transform: translateX(-100%); /* Start fully off-screen to the left */
-  }
-  100% {
-    transform: translateX(0); /* End at original position */
-  }
+  /* Removed as it’s unused in the updated feedback section */
 }
 
-.feeback-carousel:hover .sponsor-track {
-  animation-play-state: paused;
-}
-
+/* Responsive */
 @media (max-width: 1447px) {
   .booking-sect {
     background: #f9f8f8;
     max-width: 1000px;
   }
 }
+
 @media (max-width: 1227px) {
   .booking-sect {
     max-width: 700px;
     margin: 0 auto;
   }
 }
+
 @media (max-width: 946px) {
   .booking-sect {
     max-width: 500px;
@@ -668,7 +885,6 @@ h2 {
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   nav {
     padding: 1rem 2rem;
@@ -680,7 +896,7 @@ h2 {
   }
 
   .navigations {
-    display: none; 
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -688,8 +904,8 @@ h2 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 2rem 1rem;
-    transition: transform 0.3s ease; 
-    transform: translateX(100%); 
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
     z-index: 1000;
   }
 
@@ -724,7 +940,6 @@ h2 {
     padding: 12px;
   }
 
-  /* Overlay for mobile menu (optional) */
   body.nav-active::before {
     content: "";
     position: fixed;
@@ -829,23 +1044,7 @@ h2 {
     height: 300px;
   }
 
-  .clients-feedback-card {
-    width: 100%;
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .clients-feedback-card .clients-feedback-image {
-    position: static;
-    width: 100%;
-    height: 200px;
-    margin-bottom: 1rem;
-  }
-
-  .clients-feedback-card .clients-feedback-icon {
-    top: 10px;
-    right: 10px;
-  }
+  /* Removed redundant .clients-feedback-card rules here since they’re now in the main section */
 }
 
 @media (max-width: 480px) {
