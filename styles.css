@@ -573,18 +573,18 @@ select {
 
 .feedback-track {
   display: flex;
-  width: calc(820px * 3); /* 3 cards total, including margins */
-  animation: slide 15s infinite linear; /* Auto-slide every 15s */
-  transition: transform 0.5s ease-in-out; /* Smooth transition for manual control */
+  width: calc(820px * 2); 
+  animation: slide 15s infinite linear; 
+  transition: transform 0.5s ease-in-out; 
 }
 
 .feedback-carousel:hover .feedback-track {
-  animation-play-state: paused; /* Pause animation on hover */
+  animation-play-state: paused; 
 }
 
 .feedback-container {
-  flex: 0 0 800px; /* Matches card width */
-  margin: 0 10px; /* Consistent spacing */
+  flex: 0 0 800px; 
+  margin: 0 10px; 
 }
 
 .clients-feedback-card {
@@ -610,7 +610,7 @@ select {
   right: 20px;
   width: 40px;
   height: 40px;
-  color: #000; /* Black quote icon */
+  color: #000; 
   filter: invert(0);
 }
 
@@ -618,18 +618,17 @@ select {
   flex: 0 0 150px;
   margin-right: 2rem;
   position: relative;
-  top: -40px; /* Image spans above card */
+  top: -40px; 
 }
 
 .clients-feedback-avatar img {
   width: 150px;
-  height: 200px; /* Rectangular, not circular */
+  height: 200px; 
   object-fit: cover;
-  border: 3px solid #cf1212;
 }
 
 .empty-div {
-  flex: 0 0 20px; /* Small spacer */
+  flex: 0 0 20px; 
 }
 
 .client-feedback-message-wrap {
@@ -646,17 +645,6 @@ select {
   quotes: "“" "”";
 }
 
-.client-feedback-message-wrap p::before {
-  content: open-quote;
-  font-size: 1.5rem;
-  color: #cf1212;
-}
-
-.client-feedback-message-wrap p::after {
-  content: close-quote;
-  font-size: 1.5rem;
-  color: #cf1212;
-}
 
 .client-feedback-message-wrap h2 {
   font-size: 1.5rem;
@@ -667,7 +655,7 @@ select {
 /* Radio Button Control (Overrides Animation) */
 #feedback-slide-1:checked ~ .feedback-carousel .feedback-track {
   transform: translateX(0);
-  animation-play-state: paused; /* Stops animation when manually selected */
+  animation-play-state: paused; 
 }
 
 #feedback-slide-2:checked ~ .feedback-carousel .feedback-track {
@@ -692,7 +680,7 @@ select {
     transform: translateX(-1640px);
   }
   100% {
-    transform: translateX(0); /* Loops back to start */
+    transform: translateX(0); 
   }
 }
 
@@ -732,7 +720,7 @@ select {
     animation: slide-responsive-1600 15s infinite linear;
   }
   .feedback-container {
-    flex: 0 0 calc(50% - 20px); /* Two cards visible */
+    flex: 0 0 calc(50% - 20px); 
   }
   #feedback-slide-2:checked ~ .feedback-carousel .feedback-track {
     transform: translateX(-51%);
@@ -744,36 +732,35 @@ select {
 
 @media (max-width: 768px) {
   .feedback-container {
-    flex: 0 0 calc(100% - 20px); /* One card visible */
+    flex: 0 0 calc(100% - 20px); 
   }
   .clients-feedback-card {
-    flex-direction: row; /* Avatar left, text right */
-    align-items: stretch; /* Stretch items to full height */
+    flex-direction: row; 
+    align-items: stretch; 
     padding: 1rem;
-    min-height: 200px; /* Ensure card has enough height */
+    min-height: 200px; 
     max-width: 450px;
   }
   .clients-feedback-avatar {
-    flex: 0 0 40%; /* Takes 40% of width */
+    flex: 0 0 40%;
     margin-right: 1rem;
-    top: 0; /* No overlap on small screens */
-    height: 100%; /* Full height of card */
+    top: 0; 
+    height: 100%; 
   }
   .clients-feedback-avatar img {
-    width: 100%; /* Full width of avatar container */
-    height: 100%; /* Full height of card */
-    border: 2px solid #cf1212; /* Slightly thinner border */
+    width: 100%; 
+    height: 100%; 
   }
   .empty-div {
-    display: none; /* Hidden on mobile */
+    display: none; 
   }
   .client-feedback-message-wrap {
     flex: 1;
-    text-align: left; /* Text remains left-aligned */
-    padding-top: 0; /* No extra padding needed */
+    text-align: left;
+    padding-top: 0; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center text vertically */
+    justify-content: center; 
   }
   .feedback-track {
     width: calc(100% * 3);
@@ -792,10 +779,10 @@ select {
     padding: 0.75rem;
   }
   .clients-feedback-avatar {
-    flex: 0 0 35%; /* Slightly smaller on very small screens */
+    flex: 0 0 35%;
   }
   .client-feedback-message-wrap p {
-    font-size: 0.95rem; /* Slightly smaller text */
+    font-size: 0.95rem; 
   }
   .client-feedback-message-wrap h2 {
     font-size: 1.2rem;
@@ -848,10 +835,7 @@ h2 {
   font-size: 24px;
 }
 
-/* Remove Redundant Feedback Section */
-.feeback-carousel {
-  /* Removed as it’s a typo and redundant */
-}
+
 
 @keyframes slideRight {
   /* Removed as it’s unused in the updated feedback section */
@@ -1043,8 +1027,6 @@ h2 {
   .popup-video-iframe {
     height: 300px;
   }
-
-  /* Removed redundant .clients-feedback-card rules here since they’re now in the main section */
 }
 
 @media (max-width: 480px) {
