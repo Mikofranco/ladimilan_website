@@ -1,4 +1,3 @@
-// Replace your entire script.js with this
 window.onload = function () {
   let int;
   function setInt() {
@@ -156,10 +155,10 @@ const feedbackSlider = () => {
   // Calculate slide width and update slider position
   const updateSlider = () => {
     const slidesPerView = getSlidesPerView();
-    const slideWidthPercentage = 100 / totalSlides; // Each slide's width relative to total
+    const slideWidthPercentage = 100 / totalSlides; 
     const visibleSlidesWidth = slideWidthPercentage * slidesPerView;
-    const maxIndex = totalSlides - slidesPerView; // Max index to prevent sliding too far
-    currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex); // Clamp index
+    const maxIndex = totalSlides - slidesPerView; 
+    currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex); 
     const translateX = -(currentIndex * slideWidthPercentage * slidesPerView);
     sliderTrack.style.transform = `translateX(${translateX}%)`;
     radioButtons[currentIndex].checked = true;
@@ -171,15 +170,14 @@ const feedbackSlider = () => {
     const maxIndex = totalSlides - slidesPerView;
     currentIndex += 1;
     if (currentIndex > maxIndex) {
-      currentIndex = 0; // Loop back to start
+      currentIndex = 0;
     }
     updateSlider();
   };
 
-  // Auto-slide function
   const startAutoSlide = () => {
-    stopAutoSlide(); // Clear any existing interval
-    intervalId = setInterval(nextSlide, 8000); // 8 seconds
+    stopAutoSlide(); 
+    intervalId = setInterval(nextSlide, 8000); 
   };
 
   // Stop auto-slide
@@ -193,7 +191,7 @@ const feedbackSlider = () => {
       stopAutoSlide();
       currentIndex = index;
       updateSlider();
-      setTimeout(startAutoSlide, 5000); // Restart after 5s pause
+      setTimeout(startAutoSlide, 5000); 
     });
   });
 
@@ -221,7 +219,6 @@ function scrollToSection(sectionId) {
     }
   }
 }
-
 function toggleMenu() {
   const navLinks = document.getElementById("nav-links");
   navLinks.classList.toggle("active");
@@ -236,5 +233,5 @@ function closePopup() {
 }
 
 // Event Listeners
-document.querySelector('.hamburger').addEventListener('click', toggleMenu);
 window.addEventListener('load', feedbackSlider);
+hamburger.addEventListener("click", toggleMenu);
