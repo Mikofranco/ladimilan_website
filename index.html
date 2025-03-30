@@ -29,94 +29,67 @@
   </head>
   <body>
     <section>
-      <div class="hero-wrap">
-        <div class="carousel">
-          <input
-            type="radio"
-            name="carousel"
-            id="slide-btn-1"
-            class="slide-btn"
-            onclick="setInt();"
-            checked
-          />
-          <input
-            type="radio"
-            name="carousel"
-            id="slide-btn-2"
-            class="slide-btn"
-            onclick="setInt();"
-          />
-          <input
-            type="radio"
-            name="carousel"
-            id="slide-btn-3"
-            class="slide-btn"
-            onclick="setInt();"
-          />
-          <input
-            type="radio"
-            name="carousel"
-            id="slide-btn-4"
-            class="slide-btn"
-            onclick="setInt();"
-          />
-          <input
-            type="radio"
-            name="carousel"
-            id="slide-btn-5"
-            class="slide-btn"
-            onclick="setInt();"
-          />
-          <div class="slide one parallax-effect"></div>
-          <div class="slide two parallax-effect"></div>
-          <div class="slide three parallax-effect"></div>
-          <div class="slide four parallax-effect"></div>
-          <div class="slide five parallax-effect"></div>
-          <div class="labels">
-            <label for="slide-btn-1"></label>
-            <label for="slide-btn-2"></label>
-            <label for="slide-btn-3"></label>
-            <label for="slide-btn-4"></label>
-            <label for="slide-btn-5"></label>
+      <div class="hero-wrap relative">
+        <!-- Video Background -->
+        <video 
+          autoplay 
+          muted 
+          loop 
+          class="hero-video absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="assets/video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+    
+        <!-- Overlay for better text visibility (optional) -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
+    
+        <!-- Content Wrapper -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
+          <!-- Navigation -->
+          <nav class="w-full">
+            <div class="logo">
+              <img src="assets/svg/logo.svg" alt="Logo" />
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="navigations" id="nav-links">
+              <ul>
+                <li>
+                  <a href="#who-we-are" onclick="scrollToSection('who-we-are')">About us</a>
+                </li>
+                <li>
+                  <a href="#our-service" onclick="scrollToSection('our-service')">Our Services</a>
+                </li>
+                <li>
+                  <a href="#portfolios" onclick="scrollToSection('portfolios')">Portfolios</a>
+                </li>
+                <li>
+                  <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+                </li>
+                <li>
+                  <button class="book_us" onclick="scrollToSection('book-us')">
+                    <a href="#book-us">Book Us</a>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
+          <!-- Hero Content with CTA -->
+          <div class="text-center mt-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to LadiMilan</h1>
+            <p class="text-lg md:text-xl mb-6">Creating unforgettable experiences</p>
+            <button 
+              class=" CTA-btn"
+              onclick="scrollToSection('book-us')"
+            >
+              Get Started Now
+            </button>
           </div>
         </div>
-        <nav>
-          <div class="logo">
-            <img src="assets/svg/logo.svg" alt="Logo" />
-          </div>
-          <div class="hamburger" onclick="toggleMenu()">☰</div>
-          <div class="navigations" id="nav-links">
-            <ul>
-              <li>
-                <a href="#who-we-are" onclick="scrollToSection('who-we-are')"
-                  >About us</a
-                >
-              </li>
-              <li>
-                <a href="#our-service" onclick="scrollToSection('our-service')"
-                  >Our Services</a
-                >
-              </li>
-              <li>
-                <a href="#portfolios" onclick="scrollToSection('portfolios')"
-                  >Portfolios</a
-                >
-              </li>
-              <li>
-                <a href="#contact" onclick="scrollToSection('contact')"
-                  >Contact</a
-                >
-              </li>
-              <li>
-                <button class="book_us" onclick="scrollToSection('book-us')">
-                  <a href="#book-us">Book Us</a>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </nav>
       </div>
     </section>
+
 
     <div class="inner-content">
       <section>

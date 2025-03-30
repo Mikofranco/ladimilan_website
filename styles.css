@@ -169,6 +169,17 @@ nav .book_us:hover {
   display: none;
 }
 
+.hero-wrap {
+  position: relative;
+  height: 90vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.hero-video {
+  min-width: 100%;
+  min-height: 100%;
+}
+
 /* Main Content */
 .inner-content {
   padding: 0 6rem;
@@ -227,6 +238,8 @@ nav .book_us:hover {
 .sponsor-carousel:hover .sponsor-track {
   animation-play-state: paused;
 }
+
+
 
 /* Who We Are */
 .who-are-we-sect {
